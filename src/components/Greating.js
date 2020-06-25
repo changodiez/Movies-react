@@ -10,7 +10,7 @@ const Greating = () => {
     } else if (hours >= 18 && hours < 17) {
       timeOfDay = "afternoon"
     } else { timeOfDay = "nigth"}
-    return (<div className = "container"><h1>Good {timeOfDay}! Are you looking for some movies?</h1></div>)
+    return (<header><div className = "container"><h1>Good {timeOfDay}! Are you looking for some movies?</h1></div></header>)
   }
 
   

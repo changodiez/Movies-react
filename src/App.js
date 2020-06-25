@@ -1,20 +1,15 @@
 import React from "react";
 
-import Heading from "./components/Heading"
-import Movies from "./components/Movies"
+import Greating from "./components/Greating"
+import SearchFromApi from "./components/SerchFromApi";
 
 import "./App.css";
-
-
-
 
 function App() {
   return (
     <div>
-      <Heading />
-      <Movies />
-      
-      
+      <Greating />
+      <SearchFromApi />
     </div>
   );
 }
