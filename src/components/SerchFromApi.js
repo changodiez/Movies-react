@@ -1,6 +1,9 @@
 import React from "react";
 import MovieData from "./MovieData";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
 const FromApi = (props) => {
   const [search, setSearch] = React.useState("");
   const [movie, setMovie] = React.useState([]);
@@ -19,11 +22,12 @@ const FromApi = (props) => {
   };
 
   const buildMovieInfo = (movies) => {
-    const movie = movies.Search;
-    console.log(movie);
-    setMovie(movie);
+    const movie = movies.Search
+console.log(movie)
+     setMovie(movie);
   };
 
+ 
   const onError = (error) => {
     console.log("something went wrong", error);
   };
@@ -37,11 +41,28 @@ const FromApi = (props) => {
     getMovies(URL);
   };
 
+
+  // --------------------- carousel de peliculas ------------
+  const moviesRow = document.getElementById("moviesRow")
+
+const rigthClick = () => { 
+  if (moviesRow){ 
+  moviesRow.scrollLeft += moviesRow.offsetWidth
+  }
+}
+ 
+const leftClick = () => { 
+  if (moviesRow){ 
+  moviesRow.scrollLeft -= moviesRow.scrolloffsetWidth
+  }
+}
+
   return (
     <div>
       <div className="nav-search">
         <input
           type="text"
+          value = {search}
           placeholder="Search a movie"
           onChange={handleChange}
           id="searchInput"
@@ -50,13 +71,25 @@ const FromApi = (props) => {
       <div className="container">
         <div className="indicadores"></div>
         <div className="contenedor-principal">
-          <button id="flecha-izq" className="flecha-izq"><i className="fas fa-angle-left"></i></button>
-     <div className="contenedor-carousel">
-       <div className="carousel"></div>
-     </div>
-          <button id="flecha-der" className="flecha-der"><i className="fas fa-angle-right"></i></button>
+          <button id="flecha-izq" className="flecha-izq" onClick={leftClick}>
+            {movie ? <FontAwesomeIcon icon={faAngleLeft} /> : null}
+          </button>
+          <div className="contenedor-carousel" id="moviesRow">
+            <div className="carousel">
+              <div className="peliculas">
+                
+                {movie
+                  ? movie
+                  .filter((item)=>item.Type == "movie")
+                  .map((item, index) => <MovieData data={item} key={index} />)
+                  : null}
+              </div>
+            </div>
+          </div>
+          <button id="flecha-der" className="flecha-der"onClick={rigthClick}>
+            {movie ? <FontAwesomeIcon icon={faAngleRight} /> : null}
+          </button>
         </div>
-        {movie ? movie.map((item) => <MovieData data={item} />) : null}
       </div>
     </div>
   );

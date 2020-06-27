@@ -1,9 +1,8 @@
 * {
-  margin:0;
+  margin: 0;
   padding: 0;
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
   color: whitesmoke;
- 
 }
 
 body {
@@ -14,7 +13,6 @@ body {
   width: 80%;
   margin: auto;
   justify-items: center;
-  
 }
 
 .nav-search {
@@ -26,7 +24,7 @@ body {
 }
 
 header {
- padding: 2rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -37,12 +35,89 @@ header {
   flex-direction: row;
 }
 
-.containerMovieData h5{
+.containerMovieData h5 {
   padding-top: 1rem;
 }
 
-.containerMovieData p{
+.containerMovieData p {
   padding-top: 1rem;
+}
+
+/* ----------------- --- Carousel --- ----------------*/
+.contenedor-principal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.contenedor-principal .flecha-izq,
+.contenedor-principal .flecha-der {
+  position: absolute;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.315);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: whitesmoke;
+  z-index: 500;
+  cursor: pointer;
+  transition: 0.2s ease all;
+}
+
+.contenedor-principal .flecha-izq:hover,
+.contenedor-principal .flecha-der:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.contenedor-principal .flecha-izq {
+  left: 0;
+}
+.contenedor-principal .flecha-der {
+  right: 0;
+}
+
+.contenedor-carousel {
+  width: 100%;
+  padding: 20px 0px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+.carousel {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.peliculas {
+  transition: 0.3 ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.315);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.movie-card-container {
+  width: 30%;
+}
+
+.movie-card-container li {
+  list-style: none;
+  width: 100%;
+}
+
+.movie-card {
+  width: 100%;
+  padding: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movie-card img {
+}
+
+.movie-card.hover {
 }
 
 /* SearchFromAPi */
@@ -58,5 +133,4 @@ header {
   margin: auto;
   border: 1px solid whitesmoke;
   border-radius: 5px;
-
 }
