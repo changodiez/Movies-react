@@ -23,7 +23,6 @@ const FromApi = (props) => {
 
   const buildMovieInfo = (movies) => {
     const movie = movies.Search
-console.log(movie)
      setMovie(movie);
   };
 
@@ -32,18 +31,29 @@ console.log(movie)
     console.log("something went wrong", error);
   };
 
-  React.useEffect(() => {
-    getMovies(URL);
-  }, []);
+React.useEffect(() => {
+  getMovies(URL)},[])
+  
+  
+
 
   const handleChange = (event) => {
     setSearch(event.target.value);
-    getMovies(URL);
+    getMovies(URL)
   };
 
+  // ------------------Header Transition ----------------//
 
-  // --------------------- carousel de peliculas ------------
-  const moviesRow = document.getElementById("moviesRow")
+  const headerTransition = document.getElementById("header-transition");
+
+  if (headerTransition){
+    if (movie) {headerTransition.classList.add ("headerAfter")}
+    else (headerTransition.classList.remove ("headerAfter"))    
+  }
+
+
+  // --------------------- control carousel de peliculas ------------
+const moviesRow = document.getElementById("moviesRow")
 
 const rigthClick = () => { 
   if (moviesRow){ 
@@ -53,7 +63,7 @@ const rigthClick = () => {
  
 const leftClick = () => { 
   if (moviesRow){ 
-  moviesRow.scrollLeft -= moviesRow.scrolloffsetWidth
+  moviesRow.scrollLeft -= moviesRow.offsetWidth
   }
 }
 

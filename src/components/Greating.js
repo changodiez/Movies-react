@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Greating = () => {
-    const date = new Date()
+
+     const date = new Date()
     const hours = date.getHours()
     let timeOfDay;
   
@@ -10,7 +11,7 @@ const Greating = () => {
     } else if (hours >= 18 && hours < 17) {
       timeOfDay = "afternoon"
     } else { timeOfDay = "nigth"}
-    return (<header><div className = "container"><h1>Good {timeOfDay}! Are you looking for some movies?</h1></div></header>)
+    return (<header id="header-transition" className=""><div className = "container"><h1>Good {timeOfDay}! Are you looking for some movies?</h1></div></header>)
   }
 
   
