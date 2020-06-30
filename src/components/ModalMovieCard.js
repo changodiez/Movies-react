@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 function ModalMovieCard(props) {
-  
   let MovieInfo = {
     title: props.movieCardInfo.Title,
     year: props.movieCardInfo.Year,
@@ -14,51 +13,32 @@ function ModalMovieCard(props) {
     rating: props.movieCardInfo.Ratings,
   };
 
-let isOpen = props.isOpen
+  console.log (MovieInfo.rating)
+  // let isOpen = props.isOpen;
 
-
-
-
-
-// const outSide = React.useEffect ()
-
-//   const handleClick = e => {
-//       if (outSide.current.contains(e.target)) {
-//           return 
-//       }
-//       setIsOpen(false)
-//   }
-  
-// React.useEffect ( () =>  {
-//     const getClick = document.addEventListener('click', handleClick)
-    
-//     return () => { getClick () }
-//  }, [])
-
+  const [isOpen, setIsOpen] = React.useState(true);
 
   return (
-      <div> 
-          
-          {isOpen ? (
-              
-          <div className="modal">
-              <button onClick={()=> isOpen = false}>CLOSE</button>
-      <div className="container" >
-      <div className="containerMovieData">
-        <h1>{MovieInfo.title}</h1>
-        <img alt="Poster" src={MovieInfo.poster}></img>
-        <h5>{`Year: ${MovieInfo.year}`}</h5>
-        <h5>{`Director: ${MovieInfo.director}`}</h5>
-        <h5>{`Rating: ${MovieInfo.rating}`}</h5>
-        <h5>{`Cast: ${MovieInfo.actors}`}</h5>
-      </div>
-      <p>{MovieInfo.plot}</p>
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>CLOSE</button>
+      {isOpen ? (
+        <div className="modal">
+          <div className="container-modal">
+            <div className="containerMovieData">
+              <img alt="Poster" src={MovieInfo.poster}></img>
+              <div className="movie-info">
+                <h1>{MovieInfo.title}</h1>
+                <h3>{`(${MovieInfo.year})`}</h3>
+                <h5>{`Director: ${MovieInfo.director}`}</h5>
+                <h3>{`Rating: ${MovieInfo.rating[0].Value}`}</h3>
+                <h5>{`Cast: ${MovieInfo.actors}`}</h5>
+                <p>{MovieInfo.plot}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
-    </div> 
-    ) : null}
-    </div>
-    
-    
   );
 }
 
