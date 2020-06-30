@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: whitesmoke;
 }
 
@@ -19,22 +19,57 @@ body {
   width: 50%;
   margin: auto;
   display: flex;
-  justify-content: space-around;
   padding: 2rem;
+}
+
+.searchAndIcon {
+  margin: auto;
+  display: flex;
+}
+
+button {
+  position: relative;
+  display: block;
+  width: auto;
+  height: 60px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin-left: 1rem;
+}
+
+
+.svg-inline--fa {
+  font-size: 38px;
+  vertical-align: -0.125em;
+  margin: auto;
+}
+
+/* SearchFromAPi */
+
+#searchInput {
+  color: whitesmoke;
+  font-size: 20px;
+  padding: 10px;
+  background-color: black;
+  position: relative;
+  width: 50%;
+  min-width: 300px;
+  margin-left: 1rem;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
 }
 
 header {
   padding-top: 35vh;
   text-align: center;
   transition: 500ms all;
-  
 }
 
 .headerAfter {
   padding-top: 5rem;
   text-align: center;
   transition: 500ms all;
-  
 }
 /* ------ Movie Data  ------ */
 .containerMovieData {
@@ -96,9 +131,7 @@ header {
 }
 
 .carousel {
-  display: flex;
-  flex-wrap: nowrap;
-  
+ width: 100%;
 }
 
 .peliculas {
@@ -107,7 +140,7 @@ header {
   align-items: center;
   display: flex;
   flex-direction: row;
- 
+
 }
 
 .movie-card-container {
@@ -124,12 +157,14 @@ header {
   object-fit: cover;
   object-position: center;
   text-align: center;
+  width: 100%;
   
 }
 
 .movie-card img {
   border-radius: 5px;
-max-width: 300px;
+  max-width: 300px;
+ 
 }
 
 .movie-card:hover {
@@ -139,17 +174,11 @@ max-width: 300px;
   cursor: pointer;
 }
 
-/* SearchFromAPi */
 
-#searchInput {
-  color: whitesmoke;
-  font-size: 20px;
-  padding: 10px;
-  background-color: black;
-  position: relative;
-  width: 50%;
-  min-width: 300px;
-  margin: auto;
-  border: 1px solid whitesmoke;
-  border-radius: 5px;
-}
+
+
+
+
+
+
+
