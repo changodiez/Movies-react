@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function ModalMovieCard(props) {
-  console.log(props);
+  
   let MovieInfo = {
     title: props.movieCardInfo.Title,
     year: props.movieCardInfo.Year,
@@ -13,10 +13,37 @@ function ModalMovieCard(props) {
     poster: props.movieCardInfo.Poster,
     rating: props.movieCardInfo.Ratings,
   };
-  console.log(MovieInfo);
+
+let isOpen = props.isOpen
+
+
+
+
+
+// const outSide = React.useEffect ()
+
+//   const handleClick = e => {
+//       if (outSide.current.contains(e.target)) {
+//           return 
+//       }
+//       setIsOpen(false)
+//   }
+  
+// React.useEffect ( () =>  {
+//     const getClick = document.addEventListener('click', handleClick)
+    
+//     return () => { getClick () }
+//  }, [])
+
 
   return (
-    <div className="container">
+      <div> 
+          
+          {isOpen ? (
+              
+          <div className="modal">
+              <button onClick={()=> isOpen = false}>CLOSE</button>
+      <div className="container" >
       <div className="containerMovieData">
         <h1>{MovieInfo.title}</h1>
         <img alt="Poster" src={MovieInfo.poster}></img>
@@ -27,6 +54,11 @@ function ModalMovieCard(props) {
       </div>
       <p>{MovieInfo.plot}</p>
     </div>
+    </div> 
+    ) : null}
+    </div>
+    
+    
   );
 }
 

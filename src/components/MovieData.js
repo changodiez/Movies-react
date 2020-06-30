@@ -4,8 +4,6 @@ const MovieData = (props) => {
   const dataMovie = props.data;
   let poster = "";
 
-  let handleModalInfo = props.handleModalInfo;
-
   if (dataMovie.Poster === "N/A") {
     poster = "https://m.media-amazon.com/images/I/61FQCSP7ZIL._SS500_.jpg";
   } else {
@@ -15,6 +13,7 @@ const MovieData = (props) => {
   // ---------- ON CLICK ------- //
 
   const [movieCardInfo, setMovieCardInfo] = React.useState(null);
+  let handleModalInfo = props.handleModalInfo;
 
   const handleClick = () => {
     const key = "4a97bc95";
@@ -27,18 +26,17 @@ const MovieData = (props) => {
     function buildData(data) {
       let movieInfo = data;
       setMovieCardInfo(movieInfo);
-      console.log(movieCardInfo);
       handleModalInfo(movieCardInfo);
     }
-
-    console.log(handleModalInfo);
   };
+
+let isOpen = props.isOpen
 
   return (
     <div>
       <div className="movie-card-container">
         {dataMovie ? (
-          <div className="movie-card">
+          <div className="movie-card" onClick={isOpen}>
             <img
               src={poster}
               alt={dataMovie.Title}

@@ -77,9 +77,17 @@ const FromApi = (props) => {
   // --------------------- Modal Movie CArd ------------ //
 
 const [ movieCardInfo, setMovieCardInfo ] = React.useState(null)
+const [ isOpenClick, setIsOpenClick ] = React.useState(false)
+
+const isOpen = () => {
+ setIsOpenClick(true)
+  
+}
 
 const handleModalInfo = (ModalInfo) => {
-setMovieCardInfo(ModalInfo);
+setMovieCardInfo(ModalInfo)
+console.log(movieCardInfo)
+isOpen()
 }
 
 
@@ -114,7 +122,7 @@ setMovieCardInfo(ModalInfo);
                   ? movie
                       .filter((item) => item.Type == "movie")
                       .map((item, index) => (
-                        <MovieData data={item} key={index} handleModalInfo={handleModalInfo} />
+                        <MovieData data={item} key={index} handleModalInfo={handleModalInfo} isOpen = {isOpen}/>
                       ))
                   : null}
               </div>
@@ -125,7 +133,7 @@ setMovieCardInfo(ModalInfo);
           </button>
         </div>
       </div>
-      {movieCardInfo ? <ModalMovieCard movieCardInfo={movieCardInfo} /> : null}
+      {movieCardInfo ? <ModalMovieCard movieCardInfo={movieCardInfo} isOpen = {isOpenClick}/> : null}
     </div>
   );
 };
